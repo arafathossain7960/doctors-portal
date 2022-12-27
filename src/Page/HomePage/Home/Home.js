@@ -1,6 +1,8 @@
 import React from 'react';
-import InfoIcon from '../InfoIcons/InfoIcon';
+import DentalCare from '../DentalCare/DentalCare';
 import InfoIcons from '../InfoIcons/InfoIcons';
+import MakeAppointment from '../MakeAppointment/MakeAppointment';
+import Services from '../Services/Services';
 import Banner from './Banner/Banner';
 
 const Home = () => {
@@ -8,6 +10,9 @@ const Home = () => {
         <div className='mx-5'>
            <Banner></Banner>
            <InfoIcons></InfoIcons>
+           <Services></Services>
+           <DentalCare></DentalCare>
+           <MakeAppointment></MakeAppointment>
         </div>
     );
 };
