@@ -5,7 +5,6 @@ import chair from '../../../assets/images/chair.png';
 
 
 const AppointmentBanner = ({pickDate,setPickDate}) => {
-    // const [pickDate, setPickDate]=useState(new Date());
 
     return (
         <section className='mt-16 my-8 mx-16'  style={{background:`url(${appointmentBg})`}} >
