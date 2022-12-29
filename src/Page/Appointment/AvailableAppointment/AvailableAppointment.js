@@ -7,7 +7,7 @@ const AvailableAppointment = ({pickDate}) => {
     const [availableOptions, setAvailableOptions]=useState([]);
     const [serviceName, setServiceName]=useState(null);
    useEffect(()=>{
-    fetch('serviceFakeData.json')
+    fetch('http://localhost:5000/appointmentOptions')
     .then(res => res.json())
     .then(data =>setAvailableOptions(data))
    },[])   

@@ -8,6 +8,8 @@ it's a practice project, while i was doing full stake web development course I h
     react-router-dom@6
     tailwind css 
     Desyui as a tailwind css components
+    Firebase
+    React-hook-form
 
 ## Resource and Design fix
 
