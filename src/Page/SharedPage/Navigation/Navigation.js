@@ -1,7 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navigation = () => {
+  const {loginOut, user}=useContext(AuthContext);
+
+  const handleLoginOut =()=>{
+    loginOut()
+    .then(()=>{
+     
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
   const menuItem =
    <React.Fragment>
     <li><Link to="/">Home</Link></li>
@@ -9,6 +21,15 @@ const Navigation = () => {
     <li><Link to="/about">About</Link></li>
     <li><Link to="/login">Login</Link></li>
     <li><Link to="/review">Review</Link></li>
+    
+{
+  user?.uid &&
+  <>
+<li><Link><button onClick={handleLoginOut}>Login out</button></Link></li>
+<li><Link to='/dashboard'>Dashboard</Link></li>
+
+</> 
+}
   </React.Fragment>
     return (
        

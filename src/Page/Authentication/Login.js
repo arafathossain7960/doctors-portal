@@ -1,13 +1,30 @@
-import React from 'react';
+import da from 'date-fns/esm/locale/da/index.js';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
+    const {loginUser, loading}=useContext(AuthContext);
+    const location =useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit, reset, formState: {errors} } = useForm();
 
+    if(loading){
+        return <div>Loading</div>
+    }
     const loginSubmit = data =>{
-        console.log(data)
+        const email = data.email;
+        const password = data.password;
+       loginUser(email, password)
+       .then(result =>{
+        navigate(from,{replace:true});
+       })
+       .catch(error => {
+        console.log(error)
+       })
 
         reset();
     }

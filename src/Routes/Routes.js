@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Appointment from "../Page/Appointment/Appointment";
 import Login from "../Page/Authentication/Login";
 import Register from "../Page/Authentication/Register";
+import DashboardHome from "../Page/Dashboard/DashboradHome/DashboardHome";
 import Home from "../Page/HomePage/Home/Home";
 import Main from "../Page/Layout/Main";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const router = createBrowserRouter([
 {
@@ -29,7 +31,13 @@ export const router = createBrowserRouter([
         {
             path:'/register',
             element:<Register></Register>
-        }
+        },
+       {
+        path:'/dashboard',
+        element: <PrivetRoute>
+        <DashboardHome></DashboardHome>
+    </PrivetRoute>
+       }
        
     ]
 }
